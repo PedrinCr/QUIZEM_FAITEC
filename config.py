@@ -1,14 +1,14 @@
 # config.py — Configurações globais do Quizem
 
 APP_TITULO = "Quizem: O conhecimento em jogo"
-APP_LARGURA = 900
-APP_ALTURA = 650
+APP_LARGURA = 1280
+APP_ALTURA = 720
 APP_TEMA = "dark"  # "dark" ou "light"
 
 # Paleta de cores
 CORES = {
-    "primaria":       "#2563EB",  # azul principal
-    "primaria_hover": "#1D4ED8",
+    "primaria":       "#46f06d",  # verde principal
+    "primaria_hover": "#46f06d",
     "secundaria":     "#7C3AED",  # roxo
     "acerto":         "#16A34A",  # verde
     "erro":           "#DC2626",  # vermelho
@@ -21,13 +21,14 @@ CORES = {
 }
 
 # Fontes
+# Tente diferentes variações do nome da fonte Nasalization
 FONTES = {
-    "titulo":     ("Segoe UI", 28, "bold"),
-    "subtitulo":  ("Segoe UI", 18, "bold"),
-    "corpo":      ("Segoe UI", 13),
-    "corpo_bold": ("Segoe UI", 13, "bold"),
-    "pequena":    ("Segoe UI", 11),
-    "botao":      ("Segoe UI", 13, "bold"),
+    "titulo":     ("Nasalization", 32, "bold"),
+    "subtitulo":  ("Nasalization", 20, "bold"),
+    "corpo":      ("Nasalization", 16),
+    "corpo_bold": ("Nasalization", 16, "bold"),
+    "pequena":    ("Nasalization", 14),
+    "botao":      ("Nasalization", 16, "bold"),
 }
 
 # Pontuação

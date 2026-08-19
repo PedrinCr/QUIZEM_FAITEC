@@ -3,6 +3,7 @@
 import customtkinter as ctk
 from config import APP_TITULO, APP_LARGURA, APP_ALTURA, APP_TEMA, CORES
 from screens.menu import TelaMenu
+from screens.play import TelaPlay
 
 
 class Quizem(ctk.CTk):
@@ -26,10 +27,10 @@ class Quizem(ctk.CTk):
         ctk.set_appearance_mode(APP_TEMA)
         
         # Define a cor padrão dos widgets
-        ctk.set_default_color_theme("blue")
+        ctk.set_default_color_theme("green")
         
         # Impede redimensionamento (opcional, pode remover depois)
-        self.resizable(False, False)
+        self.resizable(True, True)
 
         # ── Container principal ────────────────────────────────────────────
         
@@ -38,7 +39,6 @@ class Quizem(ctk.CTk):
         self.container.pack(fill="both", expand=True)
 
         # ── Exibe a tela inicial ───────────────────────────────────────────
-        
         self.tela_atual = None
         self.mostrar_tela_menu()
 
@@ -58,19 +58,20 @@ class Quizem(ctk.CTk):
 
     def mostrar_tela_menu(self):
         """Exibe a tela de menu inicial."""
-        # Remove a tela atual, se existir
+        self.trocar_tela(TelaMenu(self.container, self.mostrar_tela_play))
+
+    def mostrar_tela_play(self):
+        """Exibe a tela de play."""
+        self.trocar_tela(TelaPlay(self.container, self.mostrar_tela_menu))
+
+    def trocar_tela(self, nova_tela):
+        """Troca a tela atual."""
         if self.tela_atual:
             self.tela_atual.pack_forget()
-        
-        # Cria e exibe a nova tela
-        self.tela_atual = TelaMenu(self.container)
+            self.tela_atual.destroy()  # libera memória
+        self.tela_atual = nova_tela
         self.tela_atual.pack(fill="both", expand=True)
-
-    # TODO: Adicionar métodos para navegar para outras telas
-    # def mostrar_tela_conteudos(self):
-    # def mostrar_tela_quiz(self):
-    # def mostrar_tela_resultado(self):
-    # etc.
+        
 
 
 # ── Execução do aplicativo ─────────────────────────────────────────────────

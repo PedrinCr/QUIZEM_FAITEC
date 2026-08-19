@@ -9,9 +9,10 @@ class TelaMenu(ctk.CTkFrame):
     Tela inicial do jogo com logo e botões principais.
     """
 
-    def __init__(self, parent):
+    def __init__(self, parent, ao_comecar = None):
         super().__init__(parent, fg_color=CORES["fundo"])
-        
+        self.ao_comecar = ao_comecar
+
         # Configura o grid para centralizar tudo
         self.grid_rowconfigure(0, weight=1)  # Espaço superior
         self.grid_rowconfigure(1, weight=0)  # Logo
@@ -26,7 +27,7 @@ class TelaMenu(ctk.CTkFrame):
         self.icone = ctk.CTkLabel(
             self,
             text="🧪",
-            font=("Segoe UI", 60),
+            font=("Segoe UI", 80),
             text_color=CORES["primaria"]
         )
         self.icone.grid(row=1, column=0, pady=(40, 10))
@@ -34,7 +35,7 @@ class TelaMenu(ctk.CTkFrame):
         # Título principal
         self.titulo = ctk.CTkLabel(
             self,
-            text="QUIZEM",
+            text="QUIzEM",
             font=FONTES["titulo"],
             text_color=CORES["texto"]
         )
@@ -47,20 +48,20 @@ class TelaMenu(ctk.CTkFrame):
             font=FONTES["corpo"],
             text_color=CORES["texto_secundario"]
         )
-        self.subtitulo.grid(row=2, column=0, pady=(45, 30))
+        self.subtitulo.grid(row=3, column=0, pady=(45, 30))
 
         # ── BOTÕES ─────────────────────────────────────────────────────────
 
         # Container para os botões (centralizado)
         self.container_botoes = ctk.CTkFrame(self, fg_color="transparent")
-        self.container_botoes.grid(row=3, column=0, pady=20)
+        self.container_botoes.grid(row=4, column=0, pady=20)
 
         # Botão: Começar (destaque principal)
         self.btn_comecar = ctk.CTkButton(
             self.container_botoes,
             text="▶  Começar",
             font=FONTES["botao"],
-            fg_color=CORES["primaria"],
+            fg_color=CORES["card"],
             hover_color=CORES["primaria_hover"],
             width=300,
             height=50,
@@ -75,7 +76,7 @@ class TelaMenu(ctk.CTkFrame):
             text="📚  Conteúdos",
             font=FONTES["botao"],
             fg_color=CORES["card"],
-            hover_color=CORES["borda"],
+            hover_color=CORES["primaria"],
             text_color=CORES["texto"],
             width=300,
             height=50,
@@ -90,7 +91,7 @@ class TelaMenu(ctk.CTkFrame):
             text="📊  Meu Progresso",
             font=FONTES["botao"],
             fg_color=CORES["card"],
-            hover_color=CORES["borda"],
+            hover_color=CORES["primaria"],
             text_color=CORES["texto"],
             width=300,
             height=50,
@@ -125,14 +126,15 @@ class TelaMenu(ctk.CTkFrame):
             font=FONTES["pequena"],
             text_color=CORES["texto_secundario"]
         )
-        self.rodape.grid(row=4, column=0, sticky="s", pady=20)
+        self.rodape.grid(row=5, column=0, sticky="s", pady=20)
 
     # ── FUNÇÕES DOS BOTÕES ─────────────────────────────────────────────────
 
     def ao_clicar_comecar(self):
         """Ação ao clicar no botão 'Começar'."""
         print("🎮 Botão 'Começar' clicado!")
-        # TODO: Navegar para a tela de seleção de conteúdos
+        if self.ao_comecar:
+            self.ao_comecar()
 
     def ao_clicar_conteudos(self):
         """Ação ao clicar no botão 'Conteúdos'."""
