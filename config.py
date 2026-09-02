@@ -1,14 +1,14 @@
 # config.py — Configurações globais do Quizem
 
 APP_TITULO = "Quizem: O conhecimento em jogo"
-APP_LARGURA = 900
-APP_ALTURA = 650
+APP_LARGURA = 1280
+APP_ALTURA = 720
 APP_TEMA = "dark"  # "dark" ou "light"
 
 # Paleta de cores
 CORES = {
-    "primaria":       "#2563EB",  # azul principal
-    "primaria_hover": "#1D4ED8",
+    "primaria":       "#46f06d",  # verde principal
+    "primaria_hover": "#46f06d",
     "secundaria":     "#7C3AED",  # roxo
     "acerto":         "#16A34A",  # verde
     "erro":           "#DC2626",  # vermelho
@@ -21,13 +21,36 @@ CORES = {
 }
 
 # Fontes
+# Tente diferentes variações do nome da fonte Nasalization
 FONTES = {
-    "titulo":     ("Segoe UI", 28, "bold"),
-    "subtitulo":  ("Segoe UI", 18, "bold"),
-    "corpo":      ("Segoe UI", 13),
-    "corpo_bold": ("Segoe UI", 13, "bold"),
-    "pequena":    ("Segoe UI", 11),
-    "botao":      ("Segoe UI", 13, "bold"),
+    "titulo":     ("Nasalization", 36, "bold"),
+    "subtitulo":  ("Nasalization", 20, "bold"),
+    "corpo":      ("Nasalization", 16),
+    "corpo_bold": ("Nasalization", 16, "bold"),
+    "pequena":    ("Nasalization", 14),
+    "botao":      ("Nasalization", 17, "bold"),
+}
+
+# Símbolos e posições (relx, rely, tamanho)
+SIMBOLOS = {
+    ("⚛︎",  0.05, 0.10, 42),
+    ("🧪",  0.90, 0.08, 36),
+    ("⌬",   0.15, 0.30, 52),
+    ("☣︎",  0.88, 0.25, 38),
+    ("🧬",   0.08, 0.55, 48),
+    ("☢︎",   0.93, 0.50, 56),
+    ("⚛︎",  0.20, 0.75, 44),
+    ("⌬",   0.82, 0.72, 50),
+    ("🧪",  0.03, 0.85, 32),
+    ("☣︎",  0.95, 0.88, 36),
+    ("🧬",   0.50, 0.05, 40),
+    ("☢︎",   0.40, 0.90, 52),
+    ("⌬",   0.70, 0.15, 38),
+    ("⚛︎",  0.60, 0.88, 44),
+    ("🧬",   0.78, 0.45, 36),
+    ("☢︎",   0.25, 0.48, 48),
+    ("☣︎",  0.55, 0.70, 80),
+    ("⌬",   0.35, 0.15, 46),
 }
 
 # Pontuação
